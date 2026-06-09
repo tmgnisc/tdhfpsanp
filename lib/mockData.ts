@@ -4,11 +4,21 @@ export const organizationInfo = {
   fullName: 'Pratyakshya Sahayog Adharshila',
   founded: 2003,
   location: 'Kathmandu, Nepal',
-  email: 'contact@directhelp.org',
-  phone: '+977-1-4123456',
-  address: 'Thamel, Kathmandu, Nepal 44600',
+  email: 'tdhfnepalpsa@gmail.com',
+  phone: '+977015352322',
+  mobile: '+9779851184453',
+  address: 'House No 51, Ghatgalli, Bhurungkhel18, Kathmandu',
+  officeHours: 'Sunday to Friday, 10:00 to 17:00',
   description:
     'We provide direct, transparent humanitarian aid to vulnerable children, widowed women, and elderly individuals in Nepal.',
+}
+
+export const bankDetails = {
+  bankName: 'Nepal Bank Ltd.',
+  accountName: 'The Direct Help Foundation',
+  accountNumber: '0123456789012345',
+  branch: 'Kathmandu',
+  qrImage: 'https://placehold.co/280x280/png?text=Bank+QR',
 }
 
 export const statistics = [

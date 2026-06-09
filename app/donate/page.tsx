@@ -4,11 +4,9 @@ import { useState } from 'react'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import PageBanner from '@/components/PageBanner'
-import DonationCard from '@/components/DonationCard'
-import { Button } from '@/components/ui/button'
-import Link from 'next/link'
-import { donationTiers } from '@/lib/mockData'
-import { Zap, TrendingUp, Heart, Eye } from 'lucide-react'
+import { bankDetails } from '@/lib/mockData'
+import { Zap, TrendingUp, Heart, Eye, Building2 } from 'lucide-react'
+import Image from 'next/image'
 
 const faqItems = [
   {
@@ -96,21 +94,59 @@ export default function Donate() {
         </div>
       </section>
 
-      {/* Donation Tiers */}
+      {/* Bank Transfer */}
       <section className="py-16 sm:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Choose Your Contribution Level</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">Every amount makes a difference. Select the tier that works for you.</p>
+            <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">Donate via Bank Transfer</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+              Scan the QR code or use the bank details below to make your contribution directly.
+            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {donationTiers.map((tier, index) => (
-              <DonationCard key={index} amount={tier.amount} title={tier.title} items={tier.items} />
-            ))}
+          <div className="max-w-2xl mx-auto bg-white rounded-xl border-2 border-border p-8 shadow-sm">
+            <div className="flex flex-col sm:flex-row items-center gap-8">
+              <div className="flex-shrink-0">
+                <Image
+                  src={bankDetails.qrImage}
+                  alt="Bank QR Code"
+                  width={280}
+                  height={280}
+                  className="rounded-lg border border-border"
+                />
+              </div>
+              <div className="flex-1 w-full space-y-4">
+                <div className="flex items-center gap-3 mb-2">
+                  <div className="flex items-center justify-center w-10 h-10 rounded-lg bg-primary/10">
+                    <Building2 size={20} className="text-primary" />
+                  </div>
+                  <h3 className="text-xl font-bold text-foreground">Bank Details</h3>
+                </div>
+                <div className="space-y-3 text-sm">
+                  <div className="flex justify-between gap-4 border-b border-border pb-2">
+                    <span className="text-muted-foreground">Bank Name</span>
+                    <span className="font-semibold text-foreground text-right">{bankDetails.bankName}</span>
+                  </div>
+                  <div className="flex justify-between gap-4 border-b border-border pb-2">
+                    <span className="text-muted-foreground">Account Name</span>
+                    <span className="font-semibold text-foreground text-right">{bankDetails.accountName}</span>
+                  </div>
+                  <div className="flex justify-between gap-4 border-b border-border pb-2">
+                    <span className="text-muted-foreground">Account Number</span>
+                    <span className="font-semibold text-foreground text-right">{bankDetails.accountNumber}</span>
+                  </div>
+                  <div className="flex justify-between gap-4">
+                    <span className="text-muted-foreground">Branch</span>
+                    <span className="font-semibold text-foreground text-right">{bankDetails.branch}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
+
+
 
       {/* FAQ Section */}
       <section className="py-16 sm:py-24 bg-muted/30 border-y border-border">
@@ -132,55 +168,6 @@ export default function Donate() {
                 {expandedFAQ === index && <div className="px-6 pb-6 text-muted-foreground border-t border-border">{item.answer}</div>}
               </div>
             ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Transparency Section */}
-      <section className="py-16 sm:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-6">Complete Transparency</h2>
-              <p className="text-lg text-muted-foreground mb-6 leading-relaxed">
-                We believe in complete transparency. Our annual financial reports show exactly how donations are used across all programs and administrative costs.
-              </p>
-              <div className="space-y-4 mb-8">
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-3 h-3 rounded-full bg-primary mt-2" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">80% Programs</h4>
-                    <p className="text-muted-foreground">Direct support to beneficiaries and programs</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-3 h-3 rounded-full bg-secondary mt-2" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">15% Operations</h4>
-                    <p className="text-muted-foreground">Staff, facilities, and program management</p>
-                  </div>
-                </div>
-                <div className="flex gap-4">
-                  <div className="flex-shrink-0 w-3 h-3 rounded-full bg-accent mt-2" />
-                  <div>
-                    <h4 className="font-semibold text-foreground mb-1">5% Fundraising</h4>
-                    <p className="text-muted-foreground">Donor outreach and program communication</p>
-                  </div>
-                </div>
-              </div>
-              <Link href="/contact">
-                <Button variant="outline" className="text-primary border-primary hover:bg-primary hover:text-white">
-                  Request Annual Report
-                </Button>
-              </Link>
-            </div>
-            <div className="bg-primary/5 rounded-lg p-8 border-2 border-primary">
-              <h3 className="text-2xl font-bold text-foreground mb-6">Our Commitment</h3>
-              <p className="text-foreground mb-6 leading-relaxed">
-                Every donation is a vote of confidence in our mission. We&apos;re committed to using every contribution wisely and measuring our impact rigorously. When you donate, you&apos;re not just giving money—you&apos;re investing in a better future for vulnerable communities.
-              </p>
-              <p className="text-foreground font-semibold">Together, we can create lasting change.</p>
-            </div>
           </div>
         </div>
       </section>

@@ -52,22 +52,7 @@ export default function Contact() {
           <div className="grid lg:grid-cols-3 gap-12">
             {/* Contact Information */}
             <div>
-              <h2 className="text-3xl font-bold text-foreground mb-8">Contact Information</h2>
-
-              {/* Address */}
-              <div className="mb-8">
-                <div className="flex gap-4 mb-3">
-                  <div className="flex-shrink-0">
-                    <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-primary/10">
-                      <MapPin size={20} className="text-primary" />
-                    </div>
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-foreground mb-1">Address</h3>
-                    <p className="text-muted-foreground">{organizationInfo.address}</p>
-                  </div>
-                </div>
-              </div>
+              <h2 className="text-3xl font-bold text-foreground mb-8">Contact Us</h2>
 
               {/* Phone */}
               <div className="mb-8">
@@ -79,8 +64,11 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Phone</h3>
-                    <a href={`tel:${organizationInfo.phone}`} className="text-primary hover:text-primary/80 transition-colors">
+                    <a href={`tel:${organizationInfo.phone}`} className="text-primary hover:text-primary/80 transition-colors block">
                       {organizationInfo.phone}
+                    </a>
+                    <a href={`tel:${organizationInfo.mobile}`} className="text-primary hover:text-primary/80 transition-colors block mt-1">
+                      {organizationInfo.mobile}
                     </a>
                   </div>
                 </div>
@@ -103,6 +91,25 @@ export default function Contact() {
                 </div>
               </div>
 
+              <div className="border-t border-border my-8" />
+
+              {/* Address */}
+              <div className="mb-8">
+                <div className="flex gap-4 mb-3">
+                  <div className="flex-shrink-0">
+                    <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-primary/10">
+                      <MapPin size={20} className="text-primary" />
+                    </div>
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-foreground mb-1">Address</h3>
+                    <p className="text-muted-foreground">{organizationInfo.address}</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="border-t border-border my-8" />
+
               {/* Office Hours */}
               <div className="mb-8">
                 <div className="flex gap-4 mb-3">
@@ -113,11 +120,8 @@ export default function Contact() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground mb-1">Office Hours</h3>
-                    <div className="text-muted-foreground text-sm space-y-1">
-                      <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                      <p>Saturday: 10:00 AM - 3:00 PM</p>
-                      <p>Sunday: Closed</p>
-                    </div>
+                    <p className="text-muted-foreground">Sunday to Friday</p>
+                    <p className="text-muted-foreground">10:00 to 17:00</p>
                   </div>
                 </div>
               </div>
@@ -213,16 +217,21 @@ export default function Contact() {
         </div>
       </section>
 
-      {/* Google Map Placeholder */}
+      {/* Google Map */}
       <section className="bg-muted/30 border-t border-border py-12">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-2xl font-bold text-foreground mb-8">Find Us</h2>
-          <div className="w-full h-96 bg-gradient-to-br from-primary/10 to-secondary/10 rounded-lg border border-border flex items-center justify-center">
-            <div className="text-center">
-              <MapPin size={48} className="text-primary mx-auto mb-4" />
-              <p className="text-foreground font-semibold mb-2">Our Office Location</p>
-              <p className="text-muted-foreground">{organizationInfo.address}</p>
-            </div>
+          <div className="w-full rounded-lg border border-border overflow-hidden">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3532.2209378858274!2d85.30085567626467!3d27.710463925352393!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb18f9fe5905cb%3A0x9dc118985a395fea!2sThe%20Direct%20Help%20Foundation!5e0!3m2!1sen!2snp!4v1781015639299!5m2!1sen!2snp"
+              width="100%"
+              height="450"
+              className="border-0 w-full"
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              title="The Direct Help Foundation location"
+            />
           </div>
         </div>
       </section>
