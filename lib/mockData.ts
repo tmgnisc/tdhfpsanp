@@ -1,5 +1,6 @@
 export const organizationInfo = {
   name: 'The Direct Help Foundation',
+  logo: 'https://ik.imagekit.io/qn3m81dsk/org/logo%20org.jpg',
   tagline: 'Direct Aid for Vulnerable Communities',
   fullName: 'Pratyakshya Sahayog Adharshila',
   founded: 2003,

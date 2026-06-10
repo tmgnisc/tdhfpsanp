@@ -1,6 +1,7 @@
 import { Analytics } from '@vercel/analytics/next'
 import type { Metadata } from 'next'
 import { Poppins, Inter } from 'next/font/google'
+import { organizationInfo } from '@/lib/mockData'
 import './globals.css'
 
 const poppins = Poppins({
@@ -15,25 +16,11 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: 'The Direct Help Foundation - Direct Aid & Community Support',
+  title: 'The Direct Help Foundation',
   description: 'Supporting vulnerable children, widowed women, and elderly individuals in Nepal through direct humanitarian aid, education, and community development programs.',
-  generator: 'v0.app',
   icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+    icon: organizationInfo.logo,
+    apple: organizationInfo.logo,
   },
   openGraph: {
     title: 'The Direct Help Foundation',

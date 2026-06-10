@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { organizationInfo } from '@/lib/mockData'
 
 const navLinks = [
   { name: 'Home', href: '/' },
@@ -21,14 +23,15 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2 flex-shrink-0">
-            <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-lg">D</span>
-            </div>
-            <div className="hidden sm:flex flex-col">
-              <span className="font-bold text-sm text-foreground">Direct Help</span>
-              <span className="text-xs text-muted-foreground">Foundation</span>
-            </div>
+          <Link href="/" className="flex items-center flex-shrink-0">
+            <Image
+              src={organizationInfo.logo}
+              alt={organizationInfo.name}
+              width={56}
+              height={56}
+              className="h-12 w-12 sm:h-14 sm:w-14 rounded-full object-cover"
+              priority
+            />
           </Link>
 
           {/* Desktop Navigation */}

@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { Mail, Phone, MapPin, Heart, Share2, Share } from 'lucide-react'
 import { organizationInfo } from '@/lib/mockData'
 
@@ -33,14 +34,14 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8">
           {/* Organization Info */}
           <div>
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">D</span>
-              </div>
-              <div>
-                <h4 className="font-bold text-lg">Direct Help</h4>
-                <p className="text-sm text-white/70">Foundation</p>
-              </div>
+            <div className="flex items-center gap-3 mb-4">
+              <Image
+                src={organizationInfo.logo}
+                alt={organizationInfo.name}
+                width={56}
+                height={56}
+                className="h-14 w-14 rounded-full object-cover"
+              />
             </div>
             <p className="text-white/70 text-sm mb-4">{organizationInfo.description}</p>
           </div>
